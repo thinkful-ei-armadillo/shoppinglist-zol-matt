@@ -1,10 +1,11 @@
 'use strict';
 require('dotenv').config();
+
 const knex = require('knex');
 
 const knex1 = knex({
   client: 'pg',
-  connection: "postgresql://dunder_mifflin_admin@localhost/dunder"
+  connection: process.env.DB_URL
 });
 
 function search(searchTerm){
