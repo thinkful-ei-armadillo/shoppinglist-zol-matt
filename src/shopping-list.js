@@ -44,4 +44,4 @@ function totalCost(){
     .then(data => console.log(data));
 }
 
-totalCost();
+// totalCost();
