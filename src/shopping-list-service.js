@@ -1,43 +1,44 @@
+'use strict';
 const shoppingListService = {
-   insertItem(knex1, item){
-    return knex1
+  insertItem(knex, item){
+    return knex
       .insert(item)
       .into('shopping_list')
       .returning('*')
       .then(rows => {
-        return rows[0]
-      })
+        return rows[0];
+      });
   },
 
   getAllItems(knex){
     return knex
       .from('shopping_list')
-      .select('*')
+      .select('*');
   },
 
   deleteItem(knex, id){
     return knex
       .from('shopping_list')
       .del()
-      .where('id', id)
+      .where('id', id);
   },
   
   updateItem(knex, id, field){
     return knex
       .from('shopping_list')
       .where({id})
-      .update(field)
+      .update(field);
   },
 
   getItemById(knex,id){
     return knex
       .from('shopping_list')
       .select('*')
-      .where('id', id)
+      .where('id', id);
   }
   
-}
-module.exports = shoppingListService 
+};
+module.exports = shoppingListService; 
 
 
 
